@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "603863302681",
+    "firebase_url": "https://thetrempiada-4af97.firebaseio.com",
+    "project_id": "thetrempiada-4af97",
+    "storage_bucket": "thetrempiada-4af97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:603863302681:android:9e0856e99345d92ecc2088",
+        "android_client_info": {
+          "package_name": "com.example.thetrempiada"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "603863302681-cfidlmbv4k9u0hr21g6bc2ja271g4oka.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.thetrempiada",
+            "certificate_hash": "243defb9f66196fde7e1c994f2ba18189c38c713"
+          }
+        },
+        {
+          "client_id": "603863302681-1pgrsqe6n3doa3tklqg4fietto08kgs6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmgkQJKDRVPqq8a3Qoc1KrTbDKkUfZ_S4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "603863302681-1pgrsqe6n3doa3tklqg4fietto08kgs6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

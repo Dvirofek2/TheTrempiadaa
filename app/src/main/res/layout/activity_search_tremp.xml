@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2196F3">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/numT2"
+            android:layout_width="150dp"
+            android:layout_height="23dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="271dp"
+            android:layout_marginLeft="271dp"
+            android:layout_marginTop="352dp"
+            android:text="Min time"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/dateT2"
+            android:layout_width="150dp"
+            android:layout_height="23dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="271dp"
+            android:layout_marginLeft="271dp"
+            android:layout_marginTop="421dp"
+            android:text="Date"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/dateB1"
+            android:layout_width="67dp"
+            android:layout_height="42dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="165dp"
+            android:layout_marginLeft="165dp"
+            android:layout_marginTop="416dp"
+            android:background="#FFFFFF"
+            android:drawableLeft="@android:drawable/ic_menu_month"
+            app:backgroundTint="#FFFFFF" />
+
+        <Button
+            android:id="@+id/timeB1"
+            android:layout_width="67dp"
+            android:layout_height="42dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="162dp"
+            android:layout_marginLeft="162dp"
+            android:layout_marginTop="338dp"
+            android:background="#FFFFFF"
+            android:drawableLeft="@android:drawable/ic_menu_recent_history"
+            app:backgroundTint="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/srcT1"
+            android:layout_width="168dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="234dp"
+            android:layout_marginLeft="234dp"
+            android:layout_marginTop="87dp"
+            android:textColor="#FF1100"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/dstT1"
+            android:layout_width="168dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="236dp"
+            android:layout_marginLeft="236dp"
+            android:layout_marginTop="167dp"
+            android:textColor="#FF1100"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="150dp"
+            android:layout_height="23dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="251dp"
+            android:layout_marginLeft="251dp"
+            android:layout_marginTop="53dp"
+            android:text="Source place"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/srcB1"
+            android:layout_width="67dp"
+            android:layout_height="42dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="172dp"
+            android:layout_marginLeft="172dp"
+            android:layout_marginTop="47dp"
+            android:background="#FFFFFF"
+            android:drawableLeft="@android:drawable/ic_menu_mylocation"
+            app:backgroundTint="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="150dp"
+            android:layout_height="23dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="257dp"
+            android:layout_marginLeft="257dp"
+            android:layout_marginTop="131dp"
+            android:text="Destination"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="156dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="254dp"
+            android:layout_marginLeft="254dp"
+            android:layout_marginTop="211dp"
+            android:text="Range src"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="148dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="259dp"
+            android:layout_marginLeft="259dp"
+            android:layout_marginTop="287dp"
+            android:text="Range dst"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/dstB1"
+            android:layout_width="67dp"
+            android:layout_height="42dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="175dp"
+            android:layout_marginLeft="175dp"
+            android:layout_marginTop="125dp"
+            android:background="#FFFFFF"
+            android:drawableLeft="@android:drawable/ic_menu_mylocation"
+            app:backgroundTint="#FFFFFF" />
+
+        <Button
+            android:id="@+id/okB1"
+            android:layout_width="67dp"
+            android:layout_height="42dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="164dp"
+            android:layout_marginLeft="164dp"
+            android:layout_marginTop="535dp"
+            android:background="#FFFFFF"
+            android:drawableLeft="@android:drawable/ic_menu_search"
+            app:backgroundTint="#FFFFFF" />
+
+        <Spinner
+            android:id="@+id/srcS"
+            android:layout_width="229dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="19dp"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="212dp" />
+
+        <Spinner
+            android:id="@+id/dstS"
+            android:layout_width="229dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="14dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="290dp" />
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TheTrempiada</string>
+    <string name="map_key" translatable="false">AIzaSyB_qsP8AOP_P0MdlPz-48TDaJYjTP3vbjo</string>
+
+    <string-array name="planets_array">
+        <item>200M</item>
+        <item>500M</item>
+        <item>1000M</item>
+        <item>5000M</item>
+    </string-array>
+
+</resources>
+
+
