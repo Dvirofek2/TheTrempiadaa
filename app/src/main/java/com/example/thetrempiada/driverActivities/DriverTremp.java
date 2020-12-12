@@ -1,29 +1,31 @@
 package com.example.thetrempiada.driverActivities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class DriverTremp {
-    protected String uid;
+public class DriverTremp implements Serializable {
+    protected String id;
     protected ArrayList<Tremp> tremps;
 
     public DriverTremp(String uid, ArrayList<Tremp> tremps) {
-        this.uid = uid;
+        this.id = uid;
         this.tremps = tremps;
     }
 
     public DriverTremp() {
+        tremps = new ArrayList<>();
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setId(String uid) {
+        this.id = uid;
     }
 
     public void setTremps(ArrayList<Tremp> tremps) {
         this.tremps = tremps;
     }
 
-    public String getUid() {
-        return uid;
+    public String getId() {
+        return id;
     }
 
     public ArrayList<Tremp> getTremps() {

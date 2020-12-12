@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -38,7 +39,8 @@ import java.util.Calendar;
 public class AddTrip extends AppCompatActivity {
 
     private TextView srcT,dstT,trempB;
-    private Button srcBtn, dstBtn, timeB,dateB,okB;
+    private Button okB;
+    private ImageButton srcBtn,dstBtn, timeB, dateB;
     private final int PLACE_PICKER_REQ_SRC= 1;
     private final int PLACE_PICKER_REQ_DST= 2;
     private LatLng src,dst;
@@ -248,7 +250,7 @@ public class AddTrip extends AppCompatActivity {
         public void onDateSet(DatePicker view, int year, int month, int day) {
             trip.year = year;
             trip.day = day;
-            trip.month = month;
+            trip.month = month+1;
         }
     }
 }

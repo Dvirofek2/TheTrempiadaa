@@ -18,7 +18,10 @@ public class DriverUser extends User{
         this.vehicleIds = vehicleIds;
     }
 
-    public DriverUser(){this.type = UserType.DRIVER;}
+    public DriverUser(){
+        this.type = UserType.DRIVER;
+        this.vehicleIds = new ArrayList<>();
+    }
 
 
     public ArrayList<Vehicle> getVehicleIds() {

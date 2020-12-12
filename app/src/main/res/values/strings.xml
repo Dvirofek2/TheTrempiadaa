@@ -10,6 +10,17 @@
         <item>5000M</item>
     </string-array>
 
+    <string-array name="sortOptions">
+        <item>old->new</item>
+        <item>new->old</item>
+    </string-array>
+
+    <string-array name="sortBy">
+        <item>distance</item>
+        <item>date</item>
+
+    </string-array>
+
 </resources>
 
 

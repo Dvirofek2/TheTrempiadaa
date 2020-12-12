@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.thetrempiada.trempistActivities.ActivitySearchTremp;
+import com.example.thetrempiada.trempistActivities.MyTremps;
 import com.example.thetrempiada.users.DriverUser;
 import com.example.thetrempiada.users.TrempistUser;
 import com.example.thetrempiada.users.User;
@@ -18,7 +19,7 @@ public class TrempistMain extends AppCompatActivity {
     private  FirebaseDB db;
     private FirebaseAuthentication auth;
     private TextView nameTxt;
-    private Button editProfile,searchTremp;
+    private Button editProfile,searchTremp,myTbtn;
 
 
     @Override
@@ -30,6 +31,7 @@ public class TrempistMain extends AppCompatActivity {
         this.nameTxt = findViewById(R.id.textName);
         this.editProfile = findViewById(R.id.profileBtn);
         this.searchTremp = findViewById(R.id.SearchTremp);
+        this.myTbtn = findViewById(R.id.myTbtn);
 
     }
 
@@ -39,6 +41,7 @@ public class TrempistMain extends AppCompatActivity {
         setButtonsEnabled(false);
         this.editProfile.setOnClickListener(x->clickedOnEditProfile());
         this.searchTremp.setOnClickListener(x->searchClicked());
+        this.myTbtn.setOnClickListener(x->myTremps());
         //editProfile.setOnClickListener(x->clickedOnEditProfile());
         this.db.getUserById(this.auth.mAuth.getUid(), new SimpleCallback<User>() {
 
@@ -52,6 +55,11 @@ public class TrempistMain extends AppCompatActivity {
             }
         },UserType.TREMPIST);
 
+    }
+
+    private void myTremps() {
+        Intent i = new Intent(TrempistMain.this, MyTremps.class);
+        startActivity(i);
     }
 
     private void searchClicked() {

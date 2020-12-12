@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.example.thetrempiada.driverActivities.LanLat;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -24,6 +26,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
@@ -47,6 +50,7 @@ public class mapActivity extends AppCompatActivity implements OnMapReadyCallback
     LatLng selectedLocation;
     public static final String KEY = "20";
     public Button btnOk;
+    final int ZOOM= 12;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +74,7 @@ public class mapActivity extends AppCompatActivity implements OnMapReadyCallback
                     LatLng cur = place.getLatLng();
                     MarkerOptions mo = new MarkerOptions().position(cur).title(place.getName());
                     myMap.animateCamera(CameraUpdateFactory.newLatLng(cur));
-                    myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(cur, 5));
+                    myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(cur, ZOOM));
                     myMap.addMarker(mo);
 
                 }
@@ -120,6 +124,17 @@ public class mapActivity extends AppCompatActivity implements OnMapReadyCallback
             }
         });
 
+        task.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Location israelLoc = new Location("Israel");
+                currentLocation=israelLoc;
+                SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.googleMaps);
+                supportMapFragment.getMapAsync(mapActivity.this);
+
+            }
+        });
+
     }
 
     @Override
@@ -135,17 +150,47 @@ public class mapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        Toast.makeText(mapActivity.this,"Ready",Toast.LENGTH_LONG).show();
         myMap = googleMap;
-        LatLng cur = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
-        markerOptions = new MarkerOptions().position(cur).title("This is you");
-        selectedLocation = cur;
-        googleMap.animateCamera(CameraUpdateFactory.newLatLng(cur));
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(cur,5));
-        googleMap.addMarker(markerOptions);
+
+        try {
+            boolean srcDst = false;
+            LatLng cur = null;
+
+            if(getIntent().getExtras()==null||(!getIntent().getExtras().containsKey("location1")&&!getIntent().getExtras().containsKey("SRC"))) {
+                cur = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+            }
+            else if(getIntent().getExtras().containsKey("location1"))
+                cur = (LatLng)getIntent().getExtras().get("location1");
+            else {
+                srcDst = true;
+                LanLat temp = (LanLat)getIntent().getExtras().get("SRC");
+                cur  =new LatLng(temp.getLatitude(),temp.getLongitude());
+            }
+            markerOptions = new MarkerOptions().position(cur).title("This is you");
+            selectedLocation = cur;
+            googleMap.animateCamera(CameraUpdateFactory.newLatLng(cur));
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(cur, ZOOM));
+
+            if(srcDst){
+                Log.w("^^^^^^^^^^^^^^","efsdgsdgds");
+                markerOptions.title("src");
+                LanLat temp = (LanLat)getIntent().getExtras().get("DST");
+                MarkerOptions dst = new MarkerOptions().position(new LatLng(temp.getLatitude(),temp.getLongitude())).title("dst");
+                googleMap.addMarker(dst);
+            }
+            googleMap.addMarker(markerOptions);
+        }
+        catch (Exception e){
+            Toast.makeText(mapActivity.this,"Cannot detect your location",Toast.LENGTH_LONG).show();
+            Log.w("!!!",e.getMessage());
+        }
         myMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
+                marker.showInfoWindow();
                 print(marker.getPosition().toString());
+
                 selectedLocation = marker.getPosition();
                 return true;
             }

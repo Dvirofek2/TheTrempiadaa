@@ -7,8 +7,8 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -23,17 +23,17 @@ import androidx.fragment.app.DialogFragment;
 import com.example.thetrempiada.FirebaseDB;
 import com.example.thetrempiada.R;
 import com.example.thetrempiada.SimpleCallback;
-import com.example.thetrempiada.driverActivities.AddTrip;
 import com.example.thetrempiada.driverActivities.DtaeAndTime;
 import com.example.thetrempiada.driverActivities.LanLat;
+import com.example.thetrempiada.driverActivities.MyTrempObj;
+import com.example.thetrempiada.driverActivities.MyTremps;
 import com.example.thetrempiada.driverActivities.Tremp;
-import com.example.thetrempiada.editProfile.Vehicle;
 import com.example.thetrempiada.mapActivity;
-import com.example.thetrempiada.users.DriverUser;
 import com.example.thetrempiada.users.TrempistUser;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 
 public class ActivitySearchTremp extends AppCompatActivity {
@@ -140,20 +140,110 @@ public class ActivitySearchTremp extends AppCompatActivity {
                     }
                     else
                     {
-                        Intent intent = new Intent(ActivitySearchTremp.this,SearchResults.class);
-                        intent.putExtra("user",user);
-                        intent.putExtra("tremps",data);
-                        startActivity(intent);
+                        db.myTrempsTrempist(user.getId(), new SimpleCallback<ArrayList<Tremp>>() {
+                            @Override
+                            public void callback(ArrayList<Tremp> myTremps, Exception error) {
+                                ArrayList<MyTrempObj> myTrempObj;
+                                if(error==null) {
+                                    Toast.makeText(ActivitySearchTremp.this,"data:"+String.valueOf(data.size())+" myTremps:"+String.valueOf(myTremps.size()),Toast.LENGTH_LONG).show();
+                                    //Log.w("myTremps:",String.valueOf(myTremps.size()));
+
+                                    ArrayList<Tremp> finalTremps = new ArrayList<>();
+                                    if (myTremps == null || myTremps.size() == 0) {
+
+                                        myTrempObj = toMyTrempObj(data);
+                                        FirebaseDB.getInstance().getFreeSpacesOfTremps(myTrempObj, new SimpleCallback<Boolean>() {
+                                            @Override
+                                            public void callback(Boolean data, Exception error) {
+                                                if(error==null)
+                                                {
+                                                    ArrayList<MyTrempObj> temp = filterTrempArray(myTrempObj);
+                                                    if(temp.size()==0)
+                                                        Toast.makeText(ActivitySearchTremp.this, "No available results", Toast.LENGTH_LONG).show();
+                                                    else
+                                                        moveToResults(temp);
+                                                }
+                                                else
+                                                    Toast.makeText(ActivitySearchTremp.this,error.getMessage(),Toast.LENGTH_LONG).show();
+
+                                            }});
+                                        return;
+                                    }
+
+                                    for (Tremp d : data) {
+                                        boolean exist = false;
+                                        for (Tremp temp : myTremps) {
+                                            if (d.getTrempId().equals(temp.getTrempId())) {
+                                                exist = true;
+
+                                                break;
+                                            }
+                                        }
+
+                                        if (!exist){
+                                            finalTremps.add(d);
+                                            Log.w("****","addddd");}
+
+                                    }
+                                    if(finalTremps.size()==0) {
+                                        Toast.makeText(ActivitySearchTremp.this, "No available results", Toast.LENGTH_LONG).show();
+                                        return;
+                                    }
+                                    myTrempObj = toMyTrempObj(finalTremps);
+                                    FirebaseDB.getInstance().getFreeSpacesOfTremps(myTrempObj, new SimpleCallback<Boolean>() {
+                                        @Override
+                                        public void callback(Boolean data, Exception error) {
+
+                                            if(error==null) {
+                                                ArrayList<MyTrempObj> temp = filterTrempArray(myTrempObj);
+                                                if(temp.size()==0)
+                                                    Toast.makeText(ActivitySearchTremp.this, "No available results", Toast.LENGTH_LONG).show();
+                                                else
+                                                    moveToResults(temp);
+                                            }
+                                            else
+                                                Toast.makeText(ActivitySearchTremp.this,error.getMessage(),Toast.LENGTH_LONG).show();
+
+                                        }});
+                                }
+                                else
+                                {
+                                    Toast.makeText(ActivitySearchTremp.this,error.getMessage(),Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
                     }
                 }
             }
         });
 
 
+    }
+    private ArrayList<MyTrempObj> filterTrempArray(ArrayList<MyTrempObj> lst){
+        ArrayList<MyTrempObj> temp = new ArrayList<>();
+        for(MyTrempObj x:lst){
+            if(x.getFreePlaces()>0)
+                temp.add(x);
+        }
+        return temp;
+    }
 
+    private ArrayList<MyTrempObj> toMyTrempObj(ArrayList<Tremp> tremps) {
+        ArrayList<MyTrempObj> lst = new ArrayList<>();
+        for(Tremp t:tremps) {
+            MyTrempObj myTremps = new MyTrempObj(t, t.getNumOfPeople());
 
-
-
+            lst.add(myTremps);
+        }
+        return lst;
+    }
+    private void moveToResults(ArrayList<MyTrempObj> data){
+        Log.w("****", Arrays.toString(data.toArray()));
+        Intent intent = new Intent(ActivitySearchTremp.this,SearchResults.class);
+        intent.putExtra("user",user);
+        intent.putExtra("tremps",data);
+        intent.putExtra("src",new LanLat(src.latitude,src.longitude));
+        startActivity(intent);
     }
 
     private void locationClicked(int x) {
@@ -236,7 +326,7 @@ public class ActivitySearchTremp extends AppCompatActivity {
         public void onDateSet(DatePicker view, int year, int month, int day) {
             trip.year = year;
             trip.day = day;
-            trip.month = month;
+            trip.month = month+1;
         }
 
     }

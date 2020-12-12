@@ -42,7 +42,7 @@ public class ActivityEditUser extends AppCompatActivity {
         setContentView(R.layout.activity_edit_profile);
         this.nameB= findViewById(R.id.nameB);
         this.emailB= findViewById(R.id.emailB);
-        this.phoneB= findViewById(R.id.phoneB);
+        this.phoneB= findViewById(R.id.phoneBtn);
         this.lastB= findViewById(R.id.lastB);
         this.typeB= findViewById(R.id.typeB);
         this.plusB = findViewById(R.id.plusB);
@@ -74,7 +74,7 @@ public class ActivityEditUser extends AppCompatActivity {
         auth.mAuth.signOut();
         login.signOut().addOnCompleteListener(this,
                 task -> {
-                    Intent i = new Intent(ActivityEditUser.this, MainActivity.class);
+                    Intent i = new Intent(ActivityEditUser.this, preMainActivity.class);
                     startActivity(i);
                 });
     }
@@ -93,6 +93,17 @@ public class ActivityEditUser extends AppCompatActivity {
             Task<Void> savedTask = db.updateUser(user);
             savedTask.addOnSuccessListener((x -> Toast.makeText(ActivityEditUser.this, "User updated!", Toast.LENGTH_LONG).show()));
             savedTask.addOnFailureListener((x -> Toast.makeText(ActivityEditUser.this, "User did not updated!", Toast.LENGTH_LONG).show()));
+
+            if(user.getType() == UserType.DRIVER) {
+                Intent driver = new Intent(ActivityEditUser.this,DriverMain.class);
+                startActivity(driver);
+            }
+            else {
+                Intent trempist = new Intent(ActivityEditUser.this,TrempistMain.class);
+                startActivity(trempist);
+            }
+            finish();
+
         }
         else
             Toast.makeText(ActivityEditUser.this, "Invalid phone", Toast.LENGTH_LONG).show();
@@ -163,7 +174,9 @@ public class ActivityEditUser extends AppCompatActivity {
         if(userType == UserType.DRIVER){
             user = (DriverUser)extras.get("user");
             DriverUser driver = (DriverUser)user;
-
+            if(driver.getVehicleIds()==null){
+                driver.setVehicleIds(new ArrayList<Vehicle>());
+            }
             adapter=new ArrayAdapter<Vehicle>(this,
                     android.R.layout.simple_list_item_1,
                     driver.getVehicleIds());
@@ -178,9 +191,7 @@ public class ActivityEditUser extends AppCompatActivity {
 
 
             });
-            if(driver.getVehicleIds()==null){
-                driver.setVehicleIds(new ArrayList<Vehicle>());
-            }
+
 
 
         }

@@ -9,6 +9,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.thetrempiada.driverActivities.AddTrip;
+import com.example.thetrempiada.driverActivities.DriverTremp;
+import com.example.thetrempiada.driverActivities.MyTremps;
 import com.example.thetrempiada.users.DriverUser;
 import com.example.thetrempiada.users.User;
 
@@ -17,7 +19,7 @@ public class DriverMain extends AppCompatActivity {
     private  FirebaseDB db;
     private FirebaseAuthentication auth;
     private TextView nameTxt;
-    private Button addTrip,editProfile;
+    private Button addTrip,editProfile,myTremps;
 
 
     @Override
@@ -29,6 +31,7 @@ public class DriverMain extends AppCompatActivity {
         this.nameTxt = findViewById(R.id.textName);
         this.editProfile = findViewById(R.id.profileBtn);
         this.addTrip = findViewById(R.id.SearchTremp);
+        this.myTremps = findViewById(R.id.mytrempsB);
 
     }
 
@@ -38,6 +41,7 @@ public class DriverMain extends AppCompatActivity {
         setButtonsEnabled(false);
         editProfile.setOnClickListener(x->clickedOnEditProfile());
         addTrip.setOnClickListener(x->addTrip());
+        myTremps.setOnClickListener(x->myTrempsClicked());
         this.db.getUserById(this.auth.mAuth.getUid(), new SimpleCallback<User>() {
 
             @Override
@@ -50,6 +54,12 @@ public class DriverMain extends AppCompatActivity {
             }
         },UserType.DRIVER);
 
+    }
+
+    private void myTrempsClicked() {
+        Intent intent = new Intent(DriverMain.this, MyTremps.class);
+        intent.putExtra("driver",driver);
+        startActivity(intent);
     }
 
     private void addTrip() {

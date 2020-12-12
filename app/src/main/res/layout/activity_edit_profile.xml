@@ -5,25 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="fill_horizontal"
-    android:background="#2196F3">
+    android:background="#FFFFFF">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/main_header_selector"><![CDATA[>
 
-        <Button
-            android:id="@+id/minusB"
-            android:layout_width="63dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="340dp"
-            android:layout_marginLeft="340dp"
-            android:layout_marginTop="550dp"
-            android:layout_marginEnd="159dp"
-            android:layout_marginRight="159dp"
-            android:background="@drawable/round_bg"
-            android:drawableLeft="@android:drawable/ic_delete"
-            android:textColor="#000000"
-            app:backgroundTint="#FFFFFF" />
+        ]]>
 
         <Button
             android:id="@+id/plusB"
@@ -39,6 +28,20 @@
             android:textColor="#000000"
             app:backgroundTint="#FFFFFF" />
 
+        <Button
+            android:id="@+id/minusB"
+            android:layout_width="63dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="340dp"
+            android:layout_marginLeft="340dp"
+            android:layout_marginTop="550dp"
+            android:layout_marginEnd="159dp"
+            android:layout_marginRight="159dp"
+            android:background="@drawable/round_bg"
+            android:drawableLeft="@android:drawable/ic_delete"
+            android:textColor="#000000"
+            app:backgroundTint="#FFFFFF" />
+
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -46,11 +49,15 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="314dp"
-            android:layout_marginLeft="314dp"
-            android:layout_marginTop="78dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="69dp"
+            android:fontFamily="sans-serif-medium"
+            android:shadowColor="#616161"
             android:text="E-mail"
-            android:textSize="20dp" />
+            android:textColor="#B3B3B3"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView5"
@@ -59,37 +66,15 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="310dp"
-            android:layout_marginLeft="310dp"
-            android:layout_marginTop="149dp"
+            android:layout_marginStart="23dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="145dp"
+            android:fontFamily="sans-serif-medium"
+            android:shadowColor="#616161"
             android:text="Type"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/lastText3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="309dp"
-            android:layout_marginLeft="309dp"
-            android:layout_marginTop="287dp"
-            android:text="Last name"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/lastText2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="305dp"
-            android:layout_marginLeft="305dp"
-            android:layout_marginTop="341dp"
-            android:text="Phone"
-            android:textSize="20dp" />
+            android:textColor="#B3B3B3"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/firstText3"
@@ -98,11 +83,32 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="310dp"
-            android:layout_marginLeft="310dp"
-            android:layout_marginTop="219dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="237dp"
+            android:fontFamily="sans-serif-medium"
+            android:shadowColor="#616161"
             android:text="First name"
-            android:textSize="20dp" />
+            android:textColor="#B3B3B3"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lastText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="23dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="313dp"
+            android:fontFamily="sans-serif-medium"
+            android:shadowColor="#616161"
+            android:text="Last name"
+            android:textColor="#B3B3B3"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/myVehicleTxt"
@@ -111,27 +117,32 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="156dp"
-            android:layout_marginLeft="156dp"
-            android:layout_marginTop="430dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="528dp"
+            android:fontFamily="sans-serif-medium"
+            android:shadowColor="#616161"
             android:text="My Vehicles"
-            android:textSize="20dp" />
+            android:textColor="#B3B3B3"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/typeB"
+        <TextView
+            android:id="@+id/lastText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="138dp"
-            android:layout_marginEnd="130dp"
-            android:layout_marginRight="130dp"
-            android:editable="true"
-            android:ems="10"
-            android:enabled="false"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:layout_marginStart="23dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="401dp"
+            android:fontFamily="sans-serif-medium"
+            android:shadowColor="#616161"
+            android:text="Phone"
+            android:textColor="#B3B3B3"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/emailB"
@@ -140,39 +151,26 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="67dp"
-            android:layout_marginEnd="128dp"
-            android:layout_marginRight="128dp"
+            android:layout_marginTop="61dp"
+            android:layout_marginEnd="73dp"
+            android:layout_marginRight="73dp"
             android:editable="true"
             android:ems="10"
             android:enabled="false"
             android:inputType="textPersonName"
-            android:text="E-mail" />
+            android:text="E-mail"
+            android:textColor="#918686" />
 
         <EditText
-            android:id="@+id/lastB"
+            android:id="@+id/phoneBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="279dp"
-            android:layout_marginEnd="131dp"
-            android:layout_marginRight="131dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
-
-        <EditText
-            android:id="@+id/phoneB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="328dp"
-            android:layout_marginEnd="131dp"
-            android:layout_marginRight="131dp"
+            android:layout_marginTop="387dp"
+            android:layout_marginEnd="73dp"
+            android:layout_marginRight="73dp"
             android:ems="10"
             android:inputType="phone"
             android:text="0000000000" />
@@ -184,9 +182,39 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="211dp"
-            android:layout_marginEnd="130dp"
-            android:layout_marginRight="130dp"
+            android:layout_marginTop="226dp"
+            android:layout_marginEnd="73dp"
+            android:layout_marginRight="73dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
+
+        <EditText
+            android:id="@+id/typeB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="137dp"
+            android:layout_marginEnd="73dp"
+            android:layout_marginRight="73dp"
+            android:editable="true"
+            android:ems="10"
+            android:enabled="false"
+            android:inputType="textPersonName"
+            android:text="Name" />
+
+        <EditText
+            android:id="@+id/lastB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="300dp"
+            android:layout_marginEnd="73dp"
+            android:layout_marginRight="73dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name" />
@@ -194,47 +222,49 @@
         <Button
             android:id="@+id/saveB"
             android:layout_width="231dp"
-            android:layout_height="81dp"
+            android:layout_height="wrap_content"
             android:layout_above="@+id/loginGoogle"
             android:layout_alignEnd="@+id/loginGoogle"
             android:layout_alignRight="@+id/loginGoogle"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="650dp"
+            android:layout_marginTop="620dp"
             android:layout_marginBottom="16dp"
             android:background="#FFFFFF"
             android:drawableLeft="@android:drawable/ic_menu_save"
             android:text="Save"
             android:textColor="#000000"
+            android:textSize="12sp"
             app:backgroundTint="#FFFFFF" />
 
         <Button
             android:id="@+id/logoutB"
-            android:layout_width="146dp"
-            android:layout_height="83dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_above="@+id/loginGoogle"
             android:layout_alignEnd="@+id/loginGoogle"
             android:layout_alignRight="@+id/loginGoogle"
             android:layout_marginStart="280dp"
             android:layout_marginLeft="280dp"
-            android:layout_marginTop="650dp"
+            android:layout_marginTop="620dp"
             android:layout_marginBottom="16dp"
             android:background="#FFFFFF"
             android:drawableLeft="@android:drawable/ic_lock_lock"
             android:text="Logout"
             android:textColor="#000000"
+            android:textSize="12sp"
             app:backgroundTint="#FFFFFF" />
 
         <ListView
             android:id="@+id/listB"
-            android:layout_width="265dp"
-            android:layout_height="176dp"
+            android:layout_width="189dp"
+            android:layout_height="118dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="64dp"
-            android:layout_marginLeft="64dp"
-            android:layout_marginTop="462dp"
+            android:layout_marginStart="133dp"
+            android:layout_marginLeft="133dp"
+            android:layout_marginTop="478dp"
             android:choiceMode="singleChoice"
             android:listSelector="@color/teal_700" />
 

@@ -37,11 +37,6 @@
             android:value="AIzaSyB_qsP8AOP_P0MdlPz-48TDaJYjTP3vbjo" />
 
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".AfterLogin"></activity>
         <activity android:name=".DriverMain"></activity>
@@ -52,6 +47,16 @@
         <activity android:name=".trempistActivities.ActivitySearchTremp"></activity>
         <activity android:name=".trempistActivities.SearchResults"></activity>
         <activity android:name=".mapActivityForSearch"></activity>
+        <activity android:name=".driverActivities.MyTremps"></activity>
+        <activity android:name=".driverActivities.EditTremp"></activity>
+        <activity android:name=".preMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".trempistActivities.MyTremps"></activity>
     </application>
 
 </manifest>

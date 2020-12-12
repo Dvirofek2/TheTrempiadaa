@@ -1,10 +1,12 @@
 package com.example.thetrempiada.driverActivities;
 
+import android.content.Intent;
+
 import com.google.gson.internal.bind.DateTypeAdapter;
 
 import java.io.Serializable;
 
-public class DtaeAndTime implements Serializable {
+public class DtaeAndTime implements Serializable, Comparable<DtaeAndTime>{
     protected int hour,min,day,year,month;
 
     public DtaeAndTime(int hour, int min, int day, int year, int month) {
@@ -61,5 +63,19 @@ public class DtaeAndTime implements Serializable {
         String s = "";
         s+=hour+":"+min+"\n"+day+"/"+month+"/"+year;
         return s;
+    }
+
+
+    @Override
+    public int compareTo(DtaeAndTime o) {
+        if(year!=o.year)
+            return Integer.compare(year,o.year);
+        if(month!=o.month)
+            return Integer.compare(month,o.month);
+        if(day!=o.day)
+            return Integer.compare(day,o.day);
+        if(hour!=o.hour)
+            return Integer.compare(hour,o.hour);
+        return Integer.compare(min,o.min);
     }
 }

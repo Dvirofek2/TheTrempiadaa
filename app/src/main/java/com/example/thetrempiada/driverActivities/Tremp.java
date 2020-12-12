@@ -34,6 +34,20 @@ public class Tremp implements Serializable {
 
     public Tremp(){}
 
+    public Tremp(Tremp t) {
+        this.dateTime = t.dateTime;
+        this.driverId = t.driverId;
+        this.trempId = t.trempId;
+        this.numOfPeople = t.numOfPeople;
+        this.vehicle = t.vehicle;
+        this.src = t.src;
+        this.dst = t.dst;
+        this.driver_lname = t.driver_lname;
+        this.driver_fname = t.driver_fname;
+        this.driver_phone = t.driver_phone;
+
+    }
+
     public String getDriver_lname() {
         return driver_lname;
     }

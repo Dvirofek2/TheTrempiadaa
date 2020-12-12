@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btn_login = findViewById(R.id.loginGoogle);
-        this.userType = UserType.DRIVER;
+        this.userType = (UserType) getIntent().getExtras().get("type");
         googleLogin = GoogleLogin.getInstance();
         firebaseAuth = FirebaseAuthentication.getInstance();
         this.firebaseDb = FirebaseDB.getInstance();
@@ -64,11 +64,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
-        if(firebaseAuth.mAuth.getCurrentUser() != null)
-            updateUI(firebaseAuth.mAuth.getCurrentUser());
+        if(firebaseAuth.mAuth.getCurrentUser() != null){
+            firebaseDb.getUserById(firebaseAuth.mAuth.getUid(), new SimpleCallback<User>() {
+                @Override
+                public void callback(User data, Exception error) {
+                    if(error==null){
+                        if(data.getType() == userType){
+                            updateUI(firebaseAuth.mAuth.getCurrentUser());
+                        }
+                        else
+                        {
+                            logout();
+                        }
+                    }
+                }
+            },UserType.TREMPIST);
+        }
+        //updateUI(firebaseAuth.mAuth.getCurrentUser());
         btn_login.setOnClickListener(v->signIn());
     }
+
 
     private void updateUI(FirebaseUser account){
         boolean login = account == null ? false: true;
@@ -144,5 +159,10 @@ public class MainActivity extends AppCompatActivity {
     private void startDriverMainActivity(){
         Intent driver = new Intent(MainActivity.this,DriverMain.class);
         startActivity(driver);
+    }
+    private void logout() {
+        GoogleLogin login = GoogleLogin.getInstance();
+        FirebaseAuthentication auth = FirebaseAuthentication.getInstance();
+        auth.mAuth.signOut();
     }
 }

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_header_selector" />
+
+        <Button
+            android:id="@+id/joinButton"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="137dp"
+            android:layout_height="60dp"
+
+
+            android:layout_marginStart="46dp"
+            android:layout_marginLeft="46dp"
+            android:layout_marginTop="356dp"
+            android:layout_marginEnd="228dp"
+            android:layout_marginRight="228dp"
+            android:background="#9FBC9797"
+            android:text="נוסע"
+            android:textColor="@color/white"
+            android:textSize="29sp"
+            app:backgroundTint="#27FFFFFF"
+            app:iconTint="#F0CF2828"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="#8E4FFF"
+            app:strokeColor="#9FFFFFFF" />
+
+        <Button
+            android:id="@+id/driverButton"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="137dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="359dp"
+            android:layout_marginEnd="39dp"
+            android:layout_marginRight="39dp"
+            android:background="#56FFFFFF"
+            android:text="נהג"
+            android:textColor="@color/white"
+            android:textColorLink="@color/white"
+            android:textSize="29sp"
+            app:backgroundTint="#27FFFFFF"
+            app:iconTint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="#FFFFFF"
+            app:strokeColor="#9FFFFFFF" />
+
+        <TextView
+        android:id="@+id/textView2"
+        android:layout_width="321dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="79dp"
+        android:layout_marginBottom="576dp"
+        android:text="הטרמפיאדה"
+        android:textColor="@color/black"
+        android:textSize="57sp"
+        android:typeface="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/appCompatImageView"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+     <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="174dp"
+        android:layout_height="191dp"
+        android:layout_marginStart="119dp"
+        android:layout_marginLeft="119dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="118dp"
+        android:layout_marginRight="118dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,6 +46,24 @@
             app:backgroundTint="#FFFFFF" />
 
         <Button
+            android:id="@+id/myTbtn"
+            android:layout_width="162dp"
+            android:layout_height="122dp"
+            android:layout_above="@+id/loginGoogle"
+            android:layout_alignEnd="@+id/loginGoogle"
+            android:layout_alignRight="@+id/loginGoogle"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="330dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="#FFFFFF"
+            android:drawableLeft="@android:drawable/ic_menu_edit"
+            android:text="My tremps"
+            android:textColor="#000000"
+            app:backgroundTint="#FFFFFF" />
+
+        <Button
             android:id="@+id/SearchTremp"
             android:layout_width="162dp"
             android:layout_height="122dp"
@@ -62,19 +80,6 @@
             android:text="Search"
             android:textColor="#000000"
             app:backgroundTint="#FFFFFF" />
-
-        <EditText
-            android:id="@+id/editTextTextPostalAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="131dp"
-            android:layout_marginEnd="101dp"
-            android:layout_marginRight="101dp"
-            android:ems="10"
-            android:inputType="textPostalAddress" />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
